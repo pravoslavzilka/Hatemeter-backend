@@ -85,7 +85,7 @@ def get_website_info(url_address):
             "title": web.title,
             "negative": web.negative_columns.split("."),
             "negative_count": web.negative_count,
-            "positive": web.positive_count
+            "positive_count": web.positive_count
         }
     return {"info":"Nothing was found"}
 
