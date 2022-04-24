@@ -30,26 +30,14 @@ def sentiment_analysis(sen):
 
     # for every sentences in Azure response, check their status: either negative, positive, neutral
     for document in doc_result:
-        print("Document Sentiment: {}".format(document.sentiment))
         results.append(document.sentiment)
         for sentence in document.sentences:
 
             if sentence.sentiment == "negative":
                 negative_sen.append(sentence.text)
 
-        print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
-            document.confidence_scores.positive,
-            document.confidence_scores.neutral,
-            document.confidence_scores.negative,
-        ))
-        print("end of sentence analyzing")
-        print("\n")
     print(f"Sequence of sentences in the paragraph{results}")
     # counting the number of sentences with different status
     total_status_dict = {i: results.count(i) for i in results}
-    print(f"Counts of sentences with each status: {total_status_dict}")
-    print("\n")
-    print("----END OF PARAGRAPH ANALYZING----")
-    print("\n")
     # by the number of sentences with different status, determine status of the whole paragraph
     return max(total_status_dict, key=total_status_dict.get), negative_sen
