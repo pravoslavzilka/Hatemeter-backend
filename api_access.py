@@ -36,7 +36,6 @@ def sentiment_analysis(sen):
             if sentence.sentiment == "negative":
                 negative_sen.append(sentence.text)
 
-    print(f"Sequence of sentences in the paragraph{results}")
     # counting the number of sentences with different status
     total_status_dict = {i: results.count(i) for i in results}
     # by the number of sentences with different status, determine status of the whole paragraph
