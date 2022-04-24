@@ -1,9 +1,8 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Boolean, Table, Date
-from sqlalchemy.orm import relationship
-from werkzeug.security import generate_password_hash, check_password_hash
+from sqlalchemy import Column, Integer, String
 from database import Base
 
 
+# database structure
 class Website(Base):
     __tablename__ = "websites"
     id = Column(Integer, primary_key=True)
