@@ -59,8 +59,6 @@ def main_api_connection(json_data):
 
     # counting total positive, negative and neutral sentences
     count_of_para = {i: responses.count(i) for i in responses}
-    print("\n")
-    print(f"Counts of paragraphs with each status: {count_of_para}")
 
     # creating new row in a database
     new_website = Website(data["url_address"], data["title"])
@@ -74,7 +72,6 @@ def main_api_connection(json_data):
     db_session.add(new_website)
     db_session.commit()
 
-    print(f"Final sequence: {responses}")
     return {"sequence": responses}
 
 
